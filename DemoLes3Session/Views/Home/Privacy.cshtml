@@ -7,7 +7,7 @@
 <h3>User logged in at: @(ViewBag?.LoginTime ?? "undefined LoginTime")</h3>
 <h3>User: @(ViewBag?.User ?? "undefined User") has role @(ViewBag?.Role ?? "undefined Role")</h3>
 <h3>All keys in the session:</h3>
-@foreach (var key in (ViewBag?.Keys ?? new List<string>())) {
+@foreach (var key in ViewBag?.Keys ?? Enumerable.Empty<string>()) {
     <h3>@key</h3>
 }
 
