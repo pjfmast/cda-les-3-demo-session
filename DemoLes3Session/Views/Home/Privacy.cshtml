@@ -4,10 +4,10 @@
 <h1>@ViewData["Title"]</h1>
 
 @* TODO 6 - display data stored in ViewBag *@
-<h3>User logged in at: @ViewBag.LoginTime</h3>
-<h3>User: @ViewBag.User has role @ViewBag.Role</h3>
+<h3>User logged in at: @(ViewBag?.LoginTime ?? "undefined LoginTime")</h3>
+<h3>User: @(ViewBag?.User ?? "undefined User") has role @(ViewBag?.Role ?? "undefined Role")</h3>
 <h3>All keys in the session:</h3>
-@foreach (var key in ViewBag.Keys) {
+@foreach (var key in (ViewBag?.Keys ?? new List<string>())) {
     <h3>@key</h3>
 }
 
