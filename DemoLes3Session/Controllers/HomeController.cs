@@ -18,6 +18,7 @@ namespace DemoLes3Session.Controllers
 
         public IActionResult Index() {
             // todo 4. store Session data
+            // Session data is stored on the server and a cookie is used to identify the user.
             HttpContext.Session.SetString(SessionUser, "Henk");
             HttpContext.Session.SetString(SessionRole, "Balie");
 
