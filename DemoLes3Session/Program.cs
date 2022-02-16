@@ -4,6 +4,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // todo 1. add services for storage and Session.
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options => {
+    options.Cookie.Name = ".Les3Demo.Session";
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    //options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -22,6 +29,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 // todo 2. add middleware for Session
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
